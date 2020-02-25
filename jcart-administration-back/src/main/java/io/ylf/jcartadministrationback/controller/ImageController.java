@@ -8,10 +8,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/image")
-public class Controller {
+public class ImageController {
 
     @PostMapping("/upload")
-    public String upload(@RequestParam MultipartFile multipartFile){
+    public String upload(@RequestParam MultipartFile image){
         return null;
     }
 

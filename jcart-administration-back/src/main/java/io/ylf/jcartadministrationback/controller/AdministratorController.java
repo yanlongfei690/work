@@ -17,7 +17,7 @@ public class AdministratorController {
     }
 
     @GetMapping("getProfile")
-    public AdministratorlGetProfileOutDTO getProfileOutDTO(Integer adminstratorId){
+    public AdministratorlGetProfileOutDTO getProfileOutDTO(@RequestParam(required = false) Integer adminstratorId){
 
         return  null;
     }
