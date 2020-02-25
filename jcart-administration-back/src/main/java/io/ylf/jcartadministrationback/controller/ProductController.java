@@ -1,12 +1,12 @@
 package io.ylf.jcartadministrationback.controller;
 
+import io.ylf.jcartadministrationback.dto.in.ProductCreateInDTO;
 import io.ylf.jcartadministrationback.dto.in.ProductSearchInDTO;
+import io.ylf.jcartadministrationback.dto.in.ProductUpdateInDTO;
 import io.ylf.jcartadministrationback.dto.out.PageOutDTO;
 import io.ylf.jcartadministrationback.dto.out.ProductListOutDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import io.ylf.jcartadministrationback.dto.out.ProductShowOutDTO;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/product")
@@ -19,4 +19,19 @@ public class ProductController {
 
         return null;
     }
+
+    @PostMapping("/")
+    public Integer create(@RequestBody ProductCreateInDTO productCreateInDTO){
+
+        return null;
+    }
+
+    @PostMapping("/update")
+    public String update (@RequestBody ProductUpdateInDTO productUpdateInDTO){
+
+        return null;
+    }
+
+    @GetMapping("getById")
+    public ProductShowOutDTO getById(@RequestParam Integer productId)
 }
