@@ -1,6 +1,7 @@
 package io.ylf.jcartstoreback.dto.in;
 
 public class ProductSearchInDTO {
+
     private String keyword;
     private Byte sortBy;
 
