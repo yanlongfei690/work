@@ -45,11 +45,12 @@ public class ProductServiceImpl implements ProductService {
         String description = productCreateInDTO.getDescription();
         String productAbstract = description.substring(0, Math.min(100, description.length()));
         product.setProductAbstract(productAbstract);
-        productMapper.insertSelective(product);
+        int i = productMapper.insertSelective(product);
 
         Integer productId = product.getProductId();
+        System.out.println(productId);
         ProductDetail productDetail = new ProductDetail();
-        productDetail.setProductId(productId);
+        productDetail.setProductId(i);
         productDetail.setDescription(productCreateInDTO.getDescription());
         List<String> otherPicUrls = productCreateInDTO.getOtherPicUrls();
         productDetail.setOtherPicUrls(JSON.toJSONString(otherPicUrls));
