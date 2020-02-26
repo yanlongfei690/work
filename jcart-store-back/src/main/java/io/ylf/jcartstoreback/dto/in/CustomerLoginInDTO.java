@@ -1,6 +1,6 @@
 package io.ylf.jcartstoreback.dto.in;
 
-public class StoreLoginInDTO {
+public class CustomerLoginInDTO {
 
     private String username;
     private String password;

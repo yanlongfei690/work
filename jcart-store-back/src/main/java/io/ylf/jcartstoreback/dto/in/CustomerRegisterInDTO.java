@@ -1,12 +1,12 @@
 package io.ylf.jcartstoreback.dto.in;
 
-public class StoreRegisterInDTO {
+public class CustomerRegisterInDTO {
 
     private String username;
-    private String realName;
-    private String mobile;
-    private String email;
     private String password;
+    private String realName;
+    private String email;
+    private String mobile;
     private Boolean newsSubscribed;
 
     public String getUsername() {
@@ -17,20 +17,20 @@ public class StoreRegisterInDTO {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getRealName() {
         return realName;
     }
 
     public void setRealName(String realName) {
         this.realName = realName;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
     }
 
     public String getEmail() {
@@ -41,12 +41,12 @@ public class StoreRegisterInDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public Boolean getNewsSubscribed() {
