@@ -52,7 +52,8 @@ public class ProductController {
 
     @GetMapping("getById")
     public ProductShowOutDTO getById(@RequestParam Integer productId){
-        return null;
+        ProductShowOutDTO byId = productService.getById(productId);
+        return byId;
     }
     @PostMapping("/delete")
     public void delete(@RequestBody Integer productId){
