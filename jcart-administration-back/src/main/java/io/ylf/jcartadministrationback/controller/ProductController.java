@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/product")
+@CrossOrigin
 public class ProductController {
 
     @Autowired
@@ -22,9 +23,10 @@ public class ProductController {
 
     @GetMapping("/search")
     public PageOutDTO<ProductListOutDTO>search(ProductSearchInDTO productSearchInDTO
-                                                    , @RequestParam(required = false, defaultValue = "1") Integer pageNum){
+            , @RequestParam(required = false, defaultValue = "1") Integer pageNum){
 
 
+        System.out.println("进入查不到的页面");
         Page<ProductListOutDTO> page = productService.search(pageNum);
 
         PageOutDTO<ProductListOutDTO> pageOutDTO = new PageOutDTO<>();
@@ -39,6 +41,7 @@ public class ProductController {
     @PostMapping("/create")
     public Integer create(@RequestBody ProductCreateInDTO productCreateInDTO){
 
+        System.out.println("啥也没");
         Integer integer = productService.create(productCreateInDTO);
 
         return integer;

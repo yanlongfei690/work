@@ -178,7 +178,8 @@
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="main_pic_url" jdbcType="VARCHAR" property="mainPicUrl" />
   </resultMap>
-  <select id="search" resultMap="ProductListOutDTO">
+
+    <select id="search" resultMap="ProductListOutDTO">
     select
     <include refid="Base_Column_List" />
     from jcart_product
