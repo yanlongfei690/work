@@ -13,7 +13,6 @@ import io.ylf.jcartadministrationback.po.Product;
 import io.ylf.jcartadministrationback.po.ProductDetail;
 import io.ylf.jcartadministrationback.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,12 +44,11 @@ public class ProductServiceImpl implements ProductService {
         String description = productCreateInDTO.getDescription();
         String productAbstract = description.substring(0, Math.min(100, description.length()));
         product.setProductAbstract(productAbstract);
-        int i = productMapper.insertSelective(product);
+        productMapper.insertSelective(product);
 
         Integer productId = product.getProductId();
-        System.out.println(productId);
         ProductDetail productDetail = new ProductDetail();
-        productDetail.setProductId(i);
+        productDetail.setProductId(productId);
         productDetail.setDescription(productCreateInDTO.getDescription());
         List<String> otherPicUrls = productCreateInDTO.getOtherPicUrls();
         productDetail.setOtherPicUrls(JSON.toJSONString(otherPicUrls));
@@ -61,8 +59,30 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void update(ProductUpdateInDTO productUpdateInDTO) {
 
+        Product product = new Product();
+        product.setProductId(productUpdateInDTO.getProductId());
+        product.setProductName(productUpdateInDTO.getProductName());
+        product.setPrice(productUpdateInDTO.getPrice());
+        product.setDiscount(productUpdateInDTO.getDiscount());
+        product.setStockQuantity(productUpdateInDTO.getStockQuantity());
+        product.setMainPicUrl(productUpdateInDTO.getMainPicUrl());
+        product.setStatus(productUpdateInDTO.getStatus());
+        product.setRewordPoints(productUpdateInDTO.getRewordPoints());
+        product.setSortOrder(productUpdateInDTO.getSoreOrder());
+        String description = productUpdateInDTO.getDescription();
+        String productAbstract = description.substring(0, Math.min(100, description.length()));
+        product.setProductAbstract(productAbstract);
+        productMapper.updateByPrimaryKeySelective(product);
+
+        ProductDetail productDetail = new ProductDetail();
+        productDetail.setProductId(productUpdateInDTO.getProductId());
+        productDetail.setDescription(productUpdateInDTO.getDescription());
+        List<String> otherPicUrls = productUpdateInDTO.getOtherPicUrls();
+        productDetail.setOtherPicUrls(JSON.toJSONString(otherPicUrls));
+        productDetailMapper.updateByPrimaryKeySelective(productDetail);
 
     }
 

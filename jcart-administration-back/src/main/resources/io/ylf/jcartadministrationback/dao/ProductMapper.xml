@@ -38,12 +38,9 @@
       #{stockQuantity,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{mainPicUrl,jdbcType=VARCHAR}, 
       #{rewordPoints,jdbcType=INTEGER}, #{sortOrder,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="io.ylf.jcartadministrationback.po.Product">
+  <insert id="insertSelective" parameterType="io.ylf.jcartadministrationback.po.Product" useGeneratedKeys="true" keyProperty="productId">
     insert into jcart_product
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="productId != null">
-        product_id,
-      </if>
       <if test="productCode != null">
         product_code,
       </if>
@@ -161,4 +158,21 @@
       sort_order = #{sortOrder,jdbcType=INTEGER}
     where product_id = #{productId,jdbcType=INTEGER}
   </update>
+
+  <!--  custom-->
+  <delete id="batchDelete">
+    delete from jcart_product
+    where product_id in
+    <foreach item="item" index="index" collection="productIds"
+             open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
+
+  <!--<select id="search" resultMap="ProductListOutDTO">
+    select
+    <include refid="Base_Column_List" />
+    from jcart_product
+  </select>-->
+
 </mapper>

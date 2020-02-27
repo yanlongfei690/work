@@ -45,9 +45,9 @@ public class ProductController {
     }
 
     @PostMapping("/update")
-    public String update (@RequestBody ProductUpdateInDTO productUpdateInDTO){
+    public void update (@RequestBody ProductUpdateInDTO productUpdateInDTO){
 
-        return null;
+        productService.update(productUpdateInDTO);
     }
 
     @GetMapping("getById")
