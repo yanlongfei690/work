@@ -26,8 +26,8 @@
             </el-option>
         </el-select>
 
-        <el-upload ref="uploadMain" action="" :http-request="uploadMainImage" :limit="1" accept="image/*" :auto-upload="false"
-            :on-change="handleOnMainChange" :file-list="mainFileList">
+        <el-upload ref="uploadMain" action="" :http-request="uploadMainImage" :limit="1" accept="image/*"
+            :auto-upload="false" :on-change="handleOnMainChange" :file-list="mainFileList">
             <el-button slot="trigger" size="small" type="primary">选取主图</el-button>
             <el-button size="small" type="success" @click="handleUploadMainClick">上传</el-button>
             <div slot="tip" class="el-upload__tip">只能上传jpg/png文件</div>
@@ -37,12 +37,13 @@
         <br>
 
         <el-upload ref="uploadOther" multiple action="" :http-request="uploadOtherImage" :limit="9" accept="image/*"
-            :auto-upload="false" :on-change="handleOnOtherChange" :on-remove="handleOnOtherRemove" :file-list="otherFileList">
+            :auto-upload="false" :on-change="handleOnOtherChange" :on-remove="handleOnOtherRemove"
+            :file-list="otherFileList">
             <el-button slot="trigger" size="small" type="primary">选取其他图片</el-button>
             <el-button size="small" type="success" @click="handleUploadOtherClick">上传</el-button>
             <div slot="tip" class="el-upload__tip">只能上传jpg/png文件</div>
         </el-upload>
-
+        
         <br>
         <div v-for="item in otherPicUrls">
             上传后其他图片：
@@ -55,6 +56,7 @@
         <el-button type="primary" @click="handleCreateClick">创建</el-button>
     </div>
 
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="assets/js/axios.min.js"></script>
     <script src="assets/js/common.js"></script>
     <script src="assets/js/vue.js"></script>
