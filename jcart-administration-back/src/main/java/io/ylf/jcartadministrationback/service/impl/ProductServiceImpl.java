@@ -42,8 +42,9 @@ public class ProductServiceImpl implements ProductService {
         product.setRewordPoints(productCreateInDTO.getRewordPoints());
         product.setSortOrder(productCreateInDTO.getSoreOrder());
         String description = productCreateInDTO.getDescription();
-        String productAbstract = description.substring(0, Math.min(100, description.length()));
-        product.setProductAbstract(productAbstract);
+       // String productAbstract = description.substring(0, Math.min(100, description.length()));
+
+        product.setProductAbstract(productCreateInDTO.getProductAbstract());
         productMapper.insertSelective(product);
 
         Integer productId = product.getProductId();
@@ -73,8 +74,9 @@ public class ProductServiceImpl implements ProductService {
         product.setRewordPoints(productUpdateInDTO.getRewordPoints());
         product.setSortOrder(productUpdateInDTO.getSoreOrder());
         String description = productUpdateInDTO.getDescription();
-        String productAbstract = description.substring(0, Math.min(100, description.length()));
-        product.setProductAbstract(productAbstract);
+        //String productAbstract = description.substring(0, Math.min(100, description.length()));
+       product.setProductAbstract(productUpdateInDTO.getProductAbstract());
+
         productMapper.updateByPrimaryKeySelective(product);
 
         ProductDetail productDetail = new ProductDetail();
@@ -125,7 +127,7 @@ public class ProductServiceImpl implements ProductService {
         productShowOutDTO.setRewordPoints(product.getRewordPoints());
         productShowOutDTO.setSoreOrder(product.getSortOrder());
         productShowOutDTO.setStockQuantity(product.getStockQuantity());
-
+        productShowOutDTO.setProductAbstract(product.getProductAbstract());
         productShowOutDTO.setDescription(productDetail.getDescription());
         String otherPicUrlsJson = productDetail.getOtherPicUrls();
         List<String> otherPicUrls = JSON.parseArray(otherPicUrlsJson, String.class);

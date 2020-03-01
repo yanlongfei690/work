@@ -12,9 +12,18 @@ public class ProductCreateInDTO {
     private Byte status;
     private String mainPicUrl;
     private Integer rewordPoints;
+    private String productAbstract;
     private Integer soreOrder;
     private String description;
     private List<String> otherPicUrls;
+
+    public String getProductAbstract() {
+        return productAbstract;
+    }
+
+    public void setProductAbstract(String productAbstract) {
+        this.productAbstract = productAbstract;
+    }
 
     public String getProductCode() {
         return productCode;

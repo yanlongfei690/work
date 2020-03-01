@@ -1,7 +1,9 @@
 package io.ylf.jcartstoreback.dao;
 
 import io.ylf.jcartstoreback.po.Customer;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CustomerMapper {
     int deleteByPrimaryKey(Integer customerId);
 
@@ -14,4 +16,6 @@ public interface CustomerMapper {
     int updateByPrimaryKeySelective(Customer record);
 
     int updateByPrimaryKey(Customer record);
+
+    Customer selectByUsername(String username);
 }
