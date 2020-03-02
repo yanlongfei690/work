@@ -42,9 +42,9 @@ public class AdministratorController {
         }
     }
 
-    @GetMapping("getProfile")
-    public AdministratorGetProfileOutDTO getProfileOutDTO(@RequestParam(required = false) Integer administratorId){
-
+    @GetMapping("/getProfile")
+    public AdministratorGetProfileOutDTO getProfile(@RequestAttribute Integer administratorId){
+        System.out.println(administratorId);
         Administrator administrator = administratorService.getById(administratorId);
         AdministratorGetProfileOutDTO administratorGetProfileOutDTO = new AdministratorGetProfileOutDTO();
         administratorGetProfileOutDTO.setAdministratorId(administrator.getAdministratorId());
@@ -55,12 +55,11 @@ public class AdministratorController {
         administratorGetProfileOutDTO.setCreateTimestamp(administrator.getCreateTime().getTime());
 
         return administratorGetProfileOutDTO;
-
     }
 
     @PostMapping("/updateProfile")
     public void  updateProfile(@RequestBody AdministratorUpdateProfileInDTO administratorUpdateProfileInDTO,
-                                @RequestAttribute Integer administratorId){
+                               @RequestAttribute Integer administratorId){
 
         Administrator administrator = new Administrator();
         administrator.setAdministratorId(administratorId);
