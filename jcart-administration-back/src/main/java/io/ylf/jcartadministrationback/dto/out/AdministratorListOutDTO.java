@@ -2,17 +2,18 @@ package io.ylf.jcartadministrationback.dto.out;
 
 public class AdministratorListOutDTO {
 
-    private Integer administrator;
+    private Integer administratorId;
     private String username;
+    private String realName;
     private Byte status;
-    private Long createTimetamp;
+    private Long createTimestamp;
 
-    public Integer getAdministrator() {
-        return administrator;
+    public Integer getAdministratorId() {
+        return administratorId;
     }
 
-    public void setAdministrator(Integer administrator) {
-        this.administrator = administrator;
+    public void setAdministratorId(Integer administratorId) {
+        this.administratorId = administratorId;
     }
 
     public String getUsername() {
@@ -23,6 +24,14 @@ public class AdministratorListOutDTO {
         this.username = username;
     }
 
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
     public Byte getStatus() {
         return status;
     }
@@ -31,11 +40,11 @@ public class AdministratorListOutDTO {
         this.status = status;
     }
 
-    public Long getCreateTimetamp() {
-        return createTimetamp;
+    public Long getCreateTimestamp() {
+        return createTimestamp;
     }
 
-    public void setCreateTimetamp(Long createTimetamp) {
-        this.createTimetamp = createTimetamp;
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 }

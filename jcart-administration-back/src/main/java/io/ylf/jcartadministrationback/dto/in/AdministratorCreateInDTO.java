@@ -4,9 +4,18 @@ public class AdministratorCreateInDTO {
 
     private String username;
     private String realNum;
+    private String password;
     private String email;
     private String avatarUrl;
     private Byte status;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;
