@@ -2,19 +2,9 @@ package io.ylf.jcartadministrationback.dto.in;
 
 public class AdministratorUpdateProfileInDTO {
 
-    private String password;
     private String realName;
     private String email;
     private String avatarUrl;
-    private Byte status;
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getRealName() {
         return realName;
@@ -40,11 +30,4 @@ public class AdministratorUpdateProfileInDTO {
         this.avatarUrl = avatarUrl;
     }
 
-    public Byte getStatus() {
-        return status;
-    }
-
-    public void setStatus(Byte status) {
-        this.status = status;
-    }
 }
