@@ -1,6 +1,6 @@
 package io.ylf.jcartadministrationback.dto.in;
 
-public class AdministratorlUpdateProfileInDTO {
+public class AdministratorUpdateProfileInDTO {
 
     private String password;
     private String realName;

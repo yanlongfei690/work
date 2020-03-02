@@ -1,6 +1,6 @@
 package io.ylf.jcartadministrationback.dto.out;
 
-public class AdministratorlGetProfileOutDTO {
+public class AdministratorGetProfileOutDTO {
 
     private Integer administratorId;
     private String username;

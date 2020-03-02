@@ -1,6 +1,6 @@
 package io.ylf.jcartadministrationback.dto.in;
 
-public class AdministratorRestPwdInDTO {
+public class AdministratorResetPwdInDTO {
 
     private String  email;
     private String  restCode;
