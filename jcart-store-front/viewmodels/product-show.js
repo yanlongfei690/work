@@ -11,6 +11,12 @@ var app = new Vue({
         mainPicUrl: '',
         otherPicUrls: ''
     },
+    computer:{
+
+        otherPicUrls(){
+            return this.otherPicUrls.toString();
+        }
+    },
     mounted(){
         console.log('view mounted');
 
