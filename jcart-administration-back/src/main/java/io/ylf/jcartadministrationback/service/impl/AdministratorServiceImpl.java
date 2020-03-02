@@ -1,10 +1,13 @@
 package io.ylf.jcartadministrationback.service.impl;
 
+import com.github.pagehelper.Page;
 import io.ylf.jcartadministrationback.dao.AdministratorMapper;
 import io.ylf.jcartadministrationback.po.Administrator;
 import io.ylf.jcartadministrationback.service.AdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AdministratorServiceImpl implements AdministratorService {
@@ -26,6 +29,6 @@ public class AdministratorServiceImpl implements AdministratorService {
 
     @Override
     public void update(Administrator administrator) {
-        administratorMapper.updateByPrimaryKeySelective(administrator);
+
     }
 }
