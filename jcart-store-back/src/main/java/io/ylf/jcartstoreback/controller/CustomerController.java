@@ -4,8 +4,8 @@ package io.ylf.jcartstoreback.controller;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import io.ylf.jcartstoreback.constant.ClientExceptionConstant;
 import io.ylf.jcartstoreback.dto.in.*;
+import io.ylf.jcartstoreback.dto.out.CustomerGetProfileOutDTO;
 import io.ylf.jcartstoreback.dto.out.CustomerLoginOutDTO;
-import io.ylf.jcartstoreback.dto.out.CustomerProfileOutDTO;
 import io.ylf.jcartstoreback.exception.ClientException;
 import io.ylf.jcartstoreback.po.Customer;
 import io.ylf.jcartstoreback.service.CustomerService;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/customer")
+@CrossOrigin
 public class CustomerController {
 
     @Autowired
@@ -46,20 +47,48 @@ public class CustomerController {
     }
 
     @GetMapping("/getProfile")
-    public CustomerProfileOutDTO getProfile(@RequestParam Integer customerId){
+    public CustomerGetProfileOutDTO getProfile(@RequestParam Integer customerId){
 
-        return null;
+        Customer customer = customerService.getById(customerId);
+        CustomerGetProfileOutDTO customerGetProfileOutDTO = new CustomerGetProfileOutDTO();
+        customerGetProfileOutDTO.setUsername(customer.getUsername());
+        customerGetProfileOutDTO.setRealName(customer.getRealName());
+        customerGetProfileOutDTO.setMobile(customer.getMobile());
+        customerGetProfileOutDTO.setMobileVerified(customer.getMobileVerified());
+        customerGetProfileOutDTO.setEmail(customer.getEmail());
+        customerGetProfileOutDTO.setEmailVerified(customer.getEmailVerified());
+
+        return customerGetProfileOutDTO;
     }
 
     @PostMapping("/updateProfile")
-    public void updateProfile(@RequestBody CustomerUpdateProfileInDTO customerUpdateProfileInDT,
+    public void updateProfile(@RequestBody CustomerUpdateProfileInDTO customerUpdateProfileInDTO,
                               @RequestAttribute Integer customerId){
+
+        Customer customer = new Customer();
+        customer.setCustomerId(customerId);
+        customer.setRealName(customerUpdateProfileInDTO.getRealName());
+        customer.setMobile(customerUpdateProfileInDTO.getMobile());
+        customer.setEmail(customerUpdateProfileInDTO.getEmail());
+        customerService.update(customer);
 
     }
 
     @PostMapping("/changePwd")
     public void changePwd(@RequestBody CustomerChangePwdInDTO customerChangePwdInDTO,
-                          @RequestAttribute Integer customerId){
+                          @RequestAttribute Integer customerId) throws ClientException {
+        Customer customer = customerService.getById(customerId);
+        String encPwdDB = customer.getEncryptedPassword();
+        BCrypt.Result result = BCrypt.verifyer().verify(customerChangePwdInDTO.getOriginPwd().toCharArray(), encPwdDB);
+
+        if (result.verified) {
+            String newPwd = customerChangePwdInDTO.getNewPwd();
+            String bcryptHashString = BCrypt.withDefaults().hashToString(12, newPwd.toCharArray());
+            customer.setEncryptedPassword(bcryptHashString);
+            customerService.update(customer);
+        }else {
+            throw new ClientException(ClientExceptionConstant.CUSTOMER_PASSWORD_INVALID_ERRCODE, ClientExceptionConstant.CUSTOMER_PASSWORD_INVALID_ERRMSG);
+        }
 
 
     }

@@ -5,7 +5,6 @@ import io.ylf.jcartstoreback.constant.ClientExceptionConstant;
 import io.ylf.jcartstoreback.exception.ClientException;
 import io.ylf.jcartstoreback.util.JWTUtil;
 import io.ylf.jcartstoreback.vo.CustomerLoginVO;
-import io.ylf.jcartstoreback.util.JWTUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
