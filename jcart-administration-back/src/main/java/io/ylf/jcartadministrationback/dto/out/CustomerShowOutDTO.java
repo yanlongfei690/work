@@ -9,10 +9,12 @@ public class CustomerShowOutDTO {
     private String mobile;
     private String email;
     private Byte status;
-    private Long createTimetamp;
+    private Long createTimestamp;
     private Boolean newsSubscribed;
     private Integer rewordPoints;
     private Integer defaultAddressId;
+    private String defaultAddress;
+
 
     public Integer getCustomerId() {
         return customerId;
@@ -70,12 +72,12 @@ public class CustomerShowOutDTO {
         this.status = status;
     }
 
-    public Long getCreateTimetamp() {
-        return createTimetamp;
+    public Long getCreateTimestamp() {
+        return createTimestamp;
     }
 
-    public void setCreateTimetamp(Long createTimetamp) {
-        this.createTimetamp = createTimetamp;
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 
     public Boolean getNewsSubscribed() {
@@ -100,5 +102,13 @@ public class CustomerShowOutDTO {
 
     public void setDefaultAddressId(Integer defaultAddressId) {
         this.defaultAddressId = defaultAddressId;
+    }
+
+    public String getDefaultAddress() {
+        return defaultAddress;
+    }
+
+    public void setDefaultAddress(String defaultAddress) {
+        this.defaultAddress = defaultAddress;
     }
 }
