@@ -1,11 +1,14 @@
 package io.ylf.jcartadministrationback.dto.out;
 
-public class AddressListOutDTO {
-
+public class AddressShowOutDTO {
     private Integer addressId;
+
     private String receiverName;
+
     private String receiverMobile;
+
     private String content;
+
     private String tag;
 
     public Integer getAddressId() {
