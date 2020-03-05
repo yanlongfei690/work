@@ -1,21 +1,41 @@
 package io.ylf.jcartadministrationback.dto.out;
 
+import java.util.Date;
+
 public class OrderListOutDTO {
 
-    private Long order;
+    private Long orderId;
     private Integer customerId;
     private String customerName;
     private Byte status;
     private Double totalPirce;
+    private Date createTime;
     private Long createTimetamp;
+    private Date updateTime;
     private Long updateTimestamp;
 
-    public Long getOrder() {
-        return order;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(Long order) {
-        this.order = order;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public Integer getCustomerId() {

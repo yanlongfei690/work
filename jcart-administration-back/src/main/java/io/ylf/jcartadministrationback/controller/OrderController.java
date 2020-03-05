@@ -1,25 +1,40 @@
 package io.ylf.jcartadministrationback.controller;
 
+import com.github.pagehelper.Page;
 import io.ylf.jcartadministrationback.dto.in.OrderSearchInDTO;
 import io.ylf.jcartadministrationback.dto.out.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import io.ylf.jcartadministrationback.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
+@CrossOrigin
 public class OrderController {
+
+
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("/search")
     public PageOutDTO<OrderListOutDTO> search(OrderSearchInDTO orderSearchInDTO, @RequestParam Integer pageNum){
 
-        return  null;
+        Page<OrderListOutDTO> page = orderService.search(pageNum);
+
+        PageOutDTO<OrderListOutDTO> pageOutDTO = new PageOutDTO<>();
+        pageOutDTO.setTotal(page.getTotal());
+        pageOutDTO.setPageSize(page.getPageSize());
+        pageOutDTO.setPageNum(page.getPageNum());
+        pageOutDTO.setList(page);
+
+        return pageOutDTO;
     }
 
     @GetMapping("/getById")
     public OrderShowOutDTO getById(@RequestParam Long orderId){
-        return  null;
+        OrderShowOutDTO orderShowOutDTO = orderService.getById(orderId);
+        return orderShowOutDTO;
     }
 
     @GetMapping("/getInvoice")
