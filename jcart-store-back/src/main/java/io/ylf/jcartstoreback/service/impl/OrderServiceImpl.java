@@ -16,11 +16,12 @@ import io.ylf.jcartstoreback.service.OrderService;
 import io.ylf.jcartstoreback.service.ProductService;
 import io.ylf.jcartstoreback.vo.OrderProductVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Service
 public class OrderServiceImpl implements OrderService {
 
 
@@ -40,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
     public Long checkout(OrderCheckoutInDTO orderCheckoutInDTO, Integer customerId) {
         List<OrderProductInDTO> orderProductInDTOS = orderCheckoutInDTO.getOrderProducts();
         List<OrderProductVO> orderProductVOS = orderProductInDTOS.stream().map(orderProductInDTO -> {
-            ProductShowOutDTO orderProduct = productService.getById(orderProductInDTO.getProductId());
+            Product orderProduct = productService.getById(orderProductInDTO.getProductId());
             OrderProductVO orderProductVO = new OrderProductVO();
             orderProductVO.setProductId(orderProduct.getProductId());
             orderProductVO.setProductCode(orderProduct.getProductCode());

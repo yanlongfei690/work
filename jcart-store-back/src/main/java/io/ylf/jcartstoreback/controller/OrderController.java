@@ -10,19 +10,18 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
+@CrossOrigin
 public class OrderController {
-
 
     @Autowired
     private OrderService orderService;
-
-
 
     @PostMapping("/checkout")
     public Long  checkout(@RequestBody OrderCheckoutInDTO orderCheckoutInDTO,
                             @RequestAttribute Integer customerId){
         Long orderId = orderService.checkout(orderCheckoutInDTO, customerId);
         return orderId;
+
     }
 
     @GetMapping("/getList")
