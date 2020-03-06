@@ -1,7 +1,9 @@
 package io.ylf.jcartadministrationback.dao;
 
 import io.ylf.jcartadministrationback.po.Return;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ReturnMapper {
     int deleteByPrimaryKey(Integer returnId);
 
