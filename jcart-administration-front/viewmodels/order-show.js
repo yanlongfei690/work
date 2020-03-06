@@ -1,57 +1,56 @@
 var app = new Vue({
     el: '#app',
-    data: {
-        orderId: '',
-        customerId: '',
-        customerName: '',
-        status: '',
-        totalPrice: '',
-        rewordPoints: '',
-        createTimestamp: '',
-        updateTimestamp: '',
-        shipMethod: '',
-        shipAddress: '',
-        shipPrice: '',
-        payMethod: '',
-        invoiceAddress: '',
-        invoicePrice: '',
-        comment: '',
-        orderProducts: [],
-        orderHistories: [],
-        orderStatuses: [
-            { value: 0, label: '待处理' },
-            { value: 1, label: '处理中' },
-            { value: 2, label: '待发货' },
-            { value: 3, label: '已发货' },
-            { value: 4, label: '待签收' },
-            { value: 5, label: '已签收' },
-            { value: 6, label: '待支付' },
-            { value: 7, label: '已支付' },
-            { value: 8, label: '取消' },
-            { value: 9, label: '拒绝' },
-            { value: 10, label: '完成' },
-            { value: 11, label: '待评价' },
-            { value: 12, label: '已评价' }
-        ],
-        createHistoryOrderStatus: '',
-        createHistoryCustomerNotified: false,
-        createHistoryComment: ''
-
+    data: {orderId: '',
+    customerId: '',
+    customerName: '',
+    status: '',
+    totalPrice: '',
+    rewordPoints: '',
+    createTimestamp: '',
+    updateTimestamp: '',
+    shipMethod: '',
+    shipAddress: '',
+    shipPrice: '',
+    payMethod: '',
+    invoiceAddress: '',
+    invoicePrice: '',
+    comment: '',
+    orderProducts: [],
+    orderHistories: [],
+    orderStatuses: [
+        { value: 0, label: '待处理' },
+        { value: 1, label: '处理中' },
+        { value: 2, label: '待发货' },
+        { value: 3, label: '已发货' },
+        { value: 4, label: '待签收' },
+        { value: 5, label: '已签收' },
+        { value: 6, label: '待支付' },
+        { value: 7, label: '已支付' },
+        { value: 8, label: '取消' },
+        { value: 9, label: '拒绝' },
+        { value: 10, label: '完成' },
+        { value: 11, label: '待评价' },
+        { value: 12, label: '已评价' }
+    ],
+    createHistoryOrderStatus: '',
+    createHistoryCustomerNotified: false,
+    createHistoryComment: ''
     },
-    mounted() {
-        console.log('view mounted');
+    mounted(){
+        console.log("view mounted");
 
-        var url = new URL(location.href);
-        this.orderId = url.searchParams.get("orderId");
-        if (!this.orderId) {
+        var url=new URL(location.href);
+        this.orderId= url.searchParams.get("orderId");
+        if(!this.orderId){
             alert('orderId is null');
-            return;
+            return ;
         }
+            this.getOrderById();
 
-        this.getOrderById();
-        this.getHistoryByOrderId();
     },
-    methods: {
+
+    methods:{
+
         handleCreateOrderHistoryClick() {
             console.log('create order history click');
             this.createOrderHistory();
@@ -119,5 +118,7 @@ var app = new Vue({
                     console.log(error);
                 });
         }
+
     }
+
 })
