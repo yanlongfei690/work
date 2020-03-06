@@ -3,7 +3,6 @@ package io.ylf.jcartadministrationback.controller;
 
 import io.ylf.jcartadministrationback.dto.in.OrderHistoryCreateInDTO;
 import io.ylf.jcartadministrationback.dto.out.OrderHistoryListOutDTO;
-import io.ylf.jcartadministrationback.po.OrderHistory;
 import io.ylf.jcartadministrationback.service.OrderHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

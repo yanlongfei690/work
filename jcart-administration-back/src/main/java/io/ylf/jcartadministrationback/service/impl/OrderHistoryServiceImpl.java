@@ -27,12 +27,13 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
         return orderHistories;
     }
 
+
     @Override
     @Transactional
     public Long create(OrderHistory orderHistory) {
         orderHistoryMapper.insertSelective(orderHistory);
         Order order = new Order();
-      //  order.setOrderId(orderHistory.getOrderId());
+        order.setOrderId(orderHistory.getOrderId());
         order.setStatus(orderHistory.getOrderStatus());
         order.setUpdateTime(new Date());
         orderService.update(order);

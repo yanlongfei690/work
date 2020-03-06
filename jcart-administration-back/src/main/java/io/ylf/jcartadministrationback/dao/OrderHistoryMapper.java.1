@@ -1,10 +1,7 @@
 package io.ylf.jcartadministrationback.dao;
 
-import org.springframework.stereotype.Repository;
+import io.ylf.jcartadministrationback.po.OrderHistory;
 
-import java.util.List;
-
-@Repository
 public interface OrderHistoryMapper {
     int deleteByPrimaryKey(Long orderHistoryId);
 
@@ -17,6 +14,4 @@ public interface OrderHistoryMapper {
     int updateByPrimaryKeySelective(OrderHistory record);
 
     int updateByPrimaryKey(OrderHistory record);
-
-    List<OrderHistory> selectByOrderId(Long orderId);
 }
