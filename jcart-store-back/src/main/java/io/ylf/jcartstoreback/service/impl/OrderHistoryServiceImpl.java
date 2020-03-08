@@ -16,6 +16,7 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 
     @Override
     public List<OrderHistory> getByOrderId(Long orderId) {
-        return null;
+        List<OrderHistory> orderHistories = orderHistoryMapper.selectByOrderId(orderId);
+        return orderHistories;
     }
 }

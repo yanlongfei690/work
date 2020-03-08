@@ -41,7 +41,7 @@ var app = new Vue({
                     console.log(response);
                     alert('创建成功');
                     app.selectedReturnStatus = '';
-                    app.customerNotified = false;
+                  app.customerNotified = false;
                     app.comment = '';
                     app.getHistoryByReturnId();
                 })

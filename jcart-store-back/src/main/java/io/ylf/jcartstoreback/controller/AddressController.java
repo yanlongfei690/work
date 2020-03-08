@@ -18,11 +18,10 @@ import java.util.stream.Collectors;
 @CrossOrigin
 public class AddressController {
 
-
     @Autowired
     private AddressService addressService;
 
-    @GetMapping("/getAddressByCustomerId")
+    @GetMapping("/getCustomerAddress")
     public List<AddressListOutDTO> getAddressByCustomerId(@RequestAttribute Integer customerId){
         List<Address> addresses = addressService.getByCustomerId(customerId);
 
