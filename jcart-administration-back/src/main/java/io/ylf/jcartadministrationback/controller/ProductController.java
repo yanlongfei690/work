@@ -25,9 +25,7 @@ public class ProductController {
     public PageOutDTO<ProductListOutDTO>search(ProductSearchInDTO productSearchInDTO
             , @RequestParam(required = false, defaultValue = "1") Integer pageNum){
 
-
-        System.out.println("进入查不到的页面");
-        Page<ProductListOutDTO> page = productService.search(pageNum);
+        Page<ProductListOutDTO> page = productService.search(productSearchInDTO, pageNum);
 
         PageOutDTO<ProductListOutDTO> pageOutDTO = new PageOutDTO<>();
         pageOutDTO.setTotal(page.getTotal());
