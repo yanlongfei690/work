@@ -2,9 +2,9 @@ package io.ylf.jcartadministrationback.dto.in;
 
 public class AdministratorResetPwdInDTO {
 
-    private String  email;
-    private String  restCode;
-    private String  newPwd;
+    private String email;
+    private String resetCode;
+    private String newPwd;
 
     public String getEmail() {
         return email;
@@ -14,12 +14,12 @@ public class AdministratorResetPwdInDTO {
         this.email = email;
     }
 
-    public String getRestCode() {
-        return restCode;
+    public String getResetCode() {
+        return resetCode;
     }
 
-    public void setRestCode(String restCode) {
-        this.restCode = restCode;
+    public void setResetCode(String resetCode) {
+        this.resetCode = resetCode;
     }
 
     public String getNewPwd() {
