@@ -29,5 +29,5 @@ public interface AdministratorMapper {
     Page<Administrator> selectList();
 
 
-
+    Administrator selectByEmail(String email);
 }
