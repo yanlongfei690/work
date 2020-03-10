@@ -10,8 +10,24 @@ public class ReturnListOutDTO {
     private String productCode;
     private String productName;
     private Byte status;
-    private Long createTimetamp;
-    private Long updateTimetamp;
+    private Long createTimestamp;
+    private Long updateTimestamp;
+
+    public Long getCreateTimestamp() {
+        return createTimestamp;
+    }
+
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
+    }
+
+    public Long getUpdateTimestamp() {
+        return updateTimestamp;
+    }
+
+    public void setUpdateTimestamp(Long updateTimestamp) {
+        this.updateTimestamp = updateTimestamp;
+    }
 
     public Integer getReturnId() {
         return returnId;
@@ -69,19 +85,5 @@ public class ReturnListOutDTO {
         this.status = status;
     }
 
-    public Long getCreateTimetamp() {
-        return createTimetamp;
-    }
 
-    public void setCreateTimetamp(Long createTimetamp) {
-        this.createTimetamp = createTimetamp;
-    }
-
-    public Long getUpdateTimetamp() {
-        return updateTimetamp;
-    }
-
-    public void setUpdateTimetamp(Long updateTimetamp) {
-        this.updateTimetamp = updateTimetamp;
-    }
 }

@@ -28,11 +28,8 @@ public class ReturnController {
     @GetMapping("/search")
     public PageOutDTO<ReturnListOutDTO>search(ReturnSearchInDTO returnSearchInDTO ,
                                               @RequestParam(required = false, defaultValue = "1") Integer pageNum){
-
-        Page<Return> page=returnService.search(pageNum);
-
-        List<ReturnListOutDTO> returnListOutDTOS=page.stream().map(aReturn ->{
-
+        Page<Return> page = returnService.search(returnSearchInDTO, pageNum);
+        List<ReturnListOutDTO> returnListOutDTOS = page.stream().map(aReturn -> {
             ReturnListOutDTO returnListOutDTO = new ReturnListOutDTO();
             returnListOutDTO.setReturnId(aReturn.getReturnId());
             returnListOutDTO.setOrderId(aReturn.getOrderId());
@@ -41,10 +38,9 @@ public class ReturnController {
             returnListOutDTO.setProductCode(aReturn.getProductCode());
             returnListOutDTO.setProductName(aReturn.getProductName());
             returnListOutDTO.setStatus(aReturn.getStatus());
-            returnListOutDTO.setCreateTimetamp(aReturn.getCreateTime().getTime());
-            returnListOutDTO.setUpdateTimetamp(aReturn.getUpdateTime().getTime());
+            returnListOutDTO.setCreateTimestamp(aReturn.getCreateTime().getTime());
+            returnListOutDTO.setUpdateTimestamp(aReturn.getUpdateTime().getTime());
             return returnListOutDTO;
-
         }).collect(Collectors.toList());
 
         PageOutDTO<ReturnListOutDTO> pageOutDTO = new PageOutDTO<>();
@@ -52,6 +48,7 @@ public class ReturnController {
         pageOutDTO.setPageSize(page.getPageSize());
         pageOutDTO.setPageNum(page.getPageNum());
         pageOutDTO.setList(returnListOutDTOS);
+
         return pageOutDTO;
     }
 

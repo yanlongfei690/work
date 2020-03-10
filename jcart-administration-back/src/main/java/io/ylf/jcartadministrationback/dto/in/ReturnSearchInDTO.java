@@ -1,13 +1,14 @@
 package io.ylf.jcartadministrationback.dto.in;
 
 public class ReturnSearchInDTO {
-
     private Integer returnId;
-    private Long  orderId;
+    private Long orderId;
     private String customerName;
     private String productCode;
     private String productName;
     private Byte status;
+    private Long startTimestamp;
+    private Long endTimestamp;
 
     public Integer getReturnId() {
         return returnId;
@@ -55,5 +56,21 @@ public class ReturnSearchInDTO {
 
     public void setStatus(Byte status) {
         this.status = status;
+    }
+
+    public Long getStartTimestamp() {
+        return startTimestamp;
+    }
+
+    public void setStartTimestamp(Long startTimestamp) {
+        this.startTimestamp = startTimestamp;
+    }
+
+    public Long getEndTimestamp() {
+        return endTimestamp;
+    }
+
+    public void setEndTimestamp(Long endTimestamp) {
+        this.endTimestamp = endTimestamp;
     }
 }
