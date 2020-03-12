@@ -1,5 +1,7 @@
 package io.ylf.jcartadministrationback.dto.out;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 public class OrderListOutDTO {
@@ -9,8 +11,10 @@ public class OrderListOutDTO {
     private String customerName;
     private Byte status;
     private Double totalPrice;
+    @JsonIgnore
     private Date createTime;
-    private Long createTimetamp;
+    private Long createTimestamp;
+    @JsonIgnore
     private Date updateTime;
     private Long updateTimestamp;
 
@@ -20,22 +24,6 @@ public class OrderListOutDTO {
 
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public Integer getCustomerId() {
@@ -70,12 +58,28 @@ public class OrderListOutDTO {
         this.totalPrice = totalPrice;
     }
 
-    public Long getCreateTimetamp() {
-        return createTimetamp;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreateTimetamp(Long createTimetamp) {
-        this.createTimetamp = createTimetamp;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getCreateTimestamp() {
+        return createTimestamp;
+    }
+
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public Long getUpdateTimestamp() {

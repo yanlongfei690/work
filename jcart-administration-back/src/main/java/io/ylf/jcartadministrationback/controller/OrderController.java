@@ -18,7 +18,8 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping("/search")
-    public PageOutDTO<OrderListOutDTO> search(OrderSearchInDTO orderSearchInDTO, @RequestParam Integer pageNum){
+    public PageOutDTO<OrderListOutDTO> search(OrderSearchInDTO orderSearchInDTO,
+                                              @RequestParam(required = false, defaultValue = "1") Integer pageNum){
 
         Page<OrderListOutDTO> page = orderService.search(orderSearchInDTO, pageNum);
 
