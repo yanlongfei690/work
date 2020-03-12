@@ -7,7 +7,6 @@ public class AddressListOutDTO {
     private String receiverMobile;
     private String content;
     private String tag;
-
     public Integer getAddressId() {
         return addressId;
     }
