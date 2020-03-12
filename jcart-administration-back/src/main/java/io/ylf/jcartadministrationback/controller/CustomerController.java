@@ -43,7 +43,7 @@ public class CustomerController {
             customerListOutDTO.setMobile(customer.getMobile());
             customerListOutDTO.setEmail(customer.getEmail());
             customerListOutDTO.setStatus(customer.getStatus());
-            customerListOutDTO.setCreateTimetamp(customer.getCreateTime().getTime());
+            customerListOutDTO.setCreateTimestamp(customer.getCreateTime().getTime());
             return customerListOutDTO;
         }).collect(Collectors.toList());
 

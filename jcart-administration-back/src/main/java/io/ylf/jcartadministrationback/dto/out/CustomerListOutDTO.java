@@ -9,8 +9,8 @@ public class CustomerListOutDTO {
     private String realName;
     private String mobile;
     private String email;
-    private Byte status ;
-    private Long createTimetamp;
+    private Byte status;
+    private Long createTimestamp;
 
     public Integer getCustomerId() {
         return customerId;
@@ -60,11 +60,11 @@ public class CustomerListOutDTO {
         this.status = status;
     }
 
-    public Long getCreateTimetamp() {
-        return createTimetamp;
+    public Long getCreateTimestamp() {
+        return createTimestamp;
     }
 
-    public void setCreateTimetamp(Long createTimetamp) {
-        this.createTimetamp = createTimetamp;
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 }
