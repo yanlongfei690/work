@@ -6,28 +6,12 @@ public class ReturnListOutDTO {
     private Integer returnId;
     private Long orderId;
     private Integer customerId;
-    private String CustomerName;
+    private String customerName;
     private String productCode;
     private String productName;
     private Byte status;
     private Long createTimestamp;
     private Long updateTimestamp;
-
-    public Long getCreateTimestamp() {
-        return createTimestamp;
-    }
-
-    public void setCreateTimestamp(Long createTimestamp) {
-        this.createTimestamp = createTimestamp;
-    }
-
-    public Long getUpdateTimestamp() {
-        return updateTimestamp;
-    }
-
-    public void setUpdateTimestamp(Long updateTimestamp) {
-        this.updateTimestamp = updateTimestamp;
-    }
 
     public Integer getReturnId() {
         return returnId;
@@ -54,11 +38,11 @@ public class ReturnListOutDTO {
     }
 
     public String getCustomerName() {
-        return CustomerName;
+        return customerName;
     }
 
     public void setCustomerName(String customerName) {
-        CustomerName = customerName;
+        this.customerName = customerName;
     }
 
     public String getProductCode() {
@@ -85,5 +69,19 @@ public class ReturnListOutDTO {
         this.status = status;
     }
 
+    public Long getCreateTimestamp() {
+        return createTimestamp;
+    }
 
+    public void setCreateTimestamp(Long createTimestamp) {
+        this.createTimestamp = createTimestamp;
+    }
+
+    public Long getUpdateTimestamp() {
+        return updateTimestamp;
+    }
+
+    public void setUpdateTimestamp(Long updateTimestamp) {
+        this.updateTimestamp = updateTimestamp;
+    }
 }
