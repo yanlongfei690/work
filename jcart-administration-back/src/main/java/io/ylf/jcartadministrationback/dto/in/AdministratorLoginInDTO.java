@@ -1,6 +1,6 @@
 package io.ylf.jcartadministrationback.dto.in;
 
-public class AdministratorlLoginInDTO {
+public class AdministratorLoginInDTO {
 
     private String username;
 
