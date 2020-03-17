@@ -49,7 +49,7 @@ public class AdministratorController {
     private Map<String, String> emailPwdResetCodeMap = new HashMap<>();
 
     @GetMapping("/login")
-    public AdministratorLoginOutDTO  login(AdministratorlLoginInDTO administratorLoginInDTO) throws ClientException {
+    public AdministratorLoginOutDTO  login(AdministratorLoginInDTO administratorLoginInDTO) throws ClientException {
 
         Administrator administrator = administratorService.getByUsername(administratorLoginInDTO.getUsername());
         if (administrator == null) {
